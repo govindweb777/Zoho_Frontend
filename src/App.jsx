@@ -18,7 +18,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          
+        <Route path="/" element={<Navigate to="/pipelines" replace />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           
