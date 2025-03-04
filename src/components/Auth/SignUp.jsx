@@ -22,6 +22,7 @@ const SignupForm = () => {
     const [credentials, setCredentials] = useState({ fullname: "", email: "", password: "" });
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
 
     const handleChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -30,7 +31,7 @@ const SignupForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/api/auth/signup", credentials);
+            await axios.post(`${BASE_URL}/api/auth/signup`, credentials);
             navigate("/login");
         } catch (err) {
             setError(err.response?.data?.message || "Something went wrong");
