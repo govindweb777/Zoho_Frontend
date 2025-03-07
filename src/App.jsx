@@ -11,6 +11,7 @@ import ActivitiesPage from './pages/ActivitiesPage';
 import ContactsPage from './pages/ContactsPage';
 import BankPage from './pages/BankPage';
 import ProductsPage from './pages/ProductsPage';
+import Dashboard from './components/Dashboard';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Sidebar />
                 <main className="flex-grow p-4">
                   <Routes>
+                  <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/pipelines" element={<PipelinesPage />} />
                   <Route path="/contacts" element={<ContactsPage />} />
                   <Route path="/bank" element={<BankPage />} />

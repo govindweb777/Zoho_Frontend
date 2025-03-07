@@ -2,7 +2,7 @@ import { FiMessageSquare, FiUsers, FiHelpCircle, FiSearch } from 'react-icons/fi
 
 const Footer = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-4 flex justify-between items-center">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-4 flex justify-between items-center z-35">
       <div className="flex items-center space-x-6">
         <div className="flex items-center text-gray-600">
           <FiMessageSquare className="mr-1" />
