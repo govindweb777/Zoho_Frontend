@@ -26,6 +26,7 @@ const Navbar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [activeNotificationTab, setActiveNotificationTab] = useState('feeds');
   const [showApprovalModal, setShowApprovalModal] = useState(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -91,8 +92,10 @@ const Navbar = () => {
             onClick={() => setShowNotifications(!showNotifications)}>
             <FiBell />
           </button>
-          <button className="text-white bg-bigin-dark bg-opacity-30 rounded-full p-1.5">
+          <button className="text-white bg-bigin-dark bg-opacity-30 rounded-full p-1.5"
+          onClick={() => setShowUpgradeModal(!showUpgradeModal)}>
             <FiHelpCircle />
+
           </button>
           <button className="text-white bg-bigin-dark bg-opacity-30 rounded-full p-1.5">
             <FiSettings />
@@ -109,6 +112,67 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {/* Upgrade Modal */}
+{showUpgradeModal && (
+  <div
+    className="fixed inset-0 bg-black bg-opacity-30 z-50 flex justify-center items-center"
+    onClick={() => setShowUpgradeModal(false)}
+  >
+    <div
+      className="bg-white rounded-md shadow-xl w-full max-w-md overflow-hidden"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div className="absolute top-4 right-4">
+        <button
+          onClick={() => setShowUpgradeModal(false)}
+          className="text-gray-500 hover:text-gray-700"
+        >
+          <FiX className="w-5 h-5" />
+        </button>
+      </div>
+      
+      <div className="p-8 flex flex-col items-center">
+        <div className="bg-gray-100 p-8 rounded-full mb-4">
+          <div className="relative">
+            <svg width="120" height="120" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="200" cy="200" r="30" fill="#F0F0F0" />
+              <path d="M200 100 L150 250 L240 170 L160 170 L250 250 Z" fill="#32A0FD" />
+              <circle cx="140" cy="160" r="15" fill="#FFD54F" />
+              <circle cx="260" cy="160" r="8" fill="#FFFFFF" stroke="#CCCCCC" />
+              <circle cx="320" cy="200" r="5" fill="#FFFFFF" stroke="#CCCCCC" />
+              <rect x="140" y="320" width="120" height="3" fill="#CCCCCC" />
+              <rect x="160" y="330" width="80" height="3" fill="#CCCCCC" />
+            </svg>
+            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
+              <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 10 Q40 0, 50 10 Q60 20, 30 40 Q0 20, 10 10 Q20 0, 30 10Z" fill="#67B8FF" opacity="0.7" />
+                <circle cx="32" cy="20" r="4" fill="white" />
+                <path d="M20 15 L40 30 L20 25 Z" fill="#FFD54F" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <h2 className="text-2xl font-bold text-center mb-2">Upgrade to Express</h2>
+        
+        <div className="w-full border-t border-b border-gray-200 my-4"></div>
+        
+        <p className="text-center text-gray-600 mb-2">
+          The Signals feature is not a part of the 'Free' plan.
+        </p>
+        <p className="text-center text-gray-600 mb-4">
+          Please upgrade to 'Express' plan to access advanced features like this.
+        </p>
+        
+        <button className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-10 rounded-full">
+          Upgrade Now!
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
       {/* Approval Form Modal */}
       {showApprovalModal && (
         <div
