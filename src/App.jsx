@@ -11,7 +11,8 @@ import ActivitiesPage from './pages/ActivitiesPage';
 import ContactsPage from './pages/ContactsPage';
 import BankPage from './pages/BankPage';
 import ProductsPage from './pages/ProductsPage';
-import Dashboard from './components/Dashboard';
+import Dashboard from './pages/Dashboard';
+import Settings from './pages/Settings';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Navigate to="/pipelines" replace />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+        
           
           <Route
             path="/*"
@@ -38,6 +40,7 @@ function App() {
                   <Route path="/bank" element={<BankPage />} />
                   <Route path="/products" element={<ProductsPage />} />   
                   <Route path="/activities" element={<ActivitiesPage />} />
+                  <Route path="/settings" element={<Settings />} />
                   </Routes>
                 </main>
                 <Footer />
